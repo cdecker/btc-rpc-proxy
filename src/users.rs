@@ -244,7 +244,7 @@ impl User {
                             Ok((header, Some(block))) => Ok(Some(RpcResponse {
                                 id: req.id.clone(),
                                 result: {
-                                    let size = block.get_size();
+                                    let size = block.size();
                                     let witness = block
                                         .txdata
                                         .iter()
@@ -264,7 +264,7 @@ impl User {
                                         } else {
                                             None
                                         },
-                                        weight: block.get_weight(),
+                                        weight: block.weight(),
                                         tx: block.txdata.into_iter().map(|tx| tx.txid()).collect(),
                                     })?)
                                 },
