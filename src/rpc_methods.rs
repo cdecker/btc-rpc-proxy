@@ -161,11 +161,11 @@ pub struct PeerInfo {
     pub inbound: bool,
     /// Whether connection was due to `addnode`/`-connect` or if it was an
     /// automatic/inbound connection
-    pub addnode: bool,
+    pub addnode: Option<bool>,
     /// The starting height (block) of the peer
     pub startingheight: i64,
     /// The ban score
-    pub banscore: i64,
+    pub banscore: Option<i64>,
     /// The last header we have in common with this peer
     pub synced_headers: i64,
     /// The last block we have in common with this peer
@@ -173,7 +173,7 @@ pub struct PeerInfo {
     /// The heights of blocks we're currently asking from this peer
     pub inflight: Vec<u64>,
     /// Whether the peer is whitelisted
-    pub whitelisted: bool,
+    pub whitelisted: Option<bool>,
     #[serde(
         rename = "minfeefilter",
         default,
